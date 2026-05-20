@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PNEUMA SERVIS</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:#0d0d0d;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:90%;
+      max-width:1300px;
+      margin:auto;
+    }
+
+    /* HEADER */
+
+    header{
+      position:fixed;
+      top:0;
+      width:100%;
+      z-index:1000;
+      background:rgba(10,10,10,0.85);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,0.06);
+    }
+
+    .navbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:22px 0;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:800;
+      letter-spacing:2px;
+    }
+
+    .logo span{
+      color:#ff5c00;
+    }
+
+    .nav-right{
+      display:flex;
+      align-items:center;
+      gap:25px;
+    }
+
+    .phone{
+      color:#ccc;
+      font-size:15px;
+    }
+
+    .btn{
+      background:#ff5c00;
+      padding:14px 24px;
+      border-radius:12px;
+      font-weight:600;
+      transition:0.3s;
+      display:inline-block;
+    }
+
+    .btn:hover{
+      background:#ff7b2f;
+      transform:translateY(-2px);
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      background:
+      linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.75)),
+      url('https://images.unsplash.com/photo-1486006920555-c77dcf18193c?q=80&w=1600&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+      position:relative;
+    }
+
+    .hero-content{
+      max-width:700px;
+    }
+
+    .hero h1{
+      font-size:72px;
+      line-height:1.05;
+      margin-bottom:25px;
+      font-weight:800;
+    }
+
+    .hero p{
+      font-size:20px;
+      color:#d2d2d2;
+      line-height:1.7;
+      margin-bottom:40px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .btn-secondary{
+      border:1px solid rgba(255,255,255,0.2);
+      background:rgba(255,255,255,0.05);
+    }
+
+    .btn-secondary:hover{
+      background:rgba(255,255,255,0.1);
+    }
+
+    /* SECTION */
+
+    section{
+      padding:110px 0;
+    }
+
+    .section-title{
+      font-size:48px;
+      margin-bottom:60px;
+      text-align:center;
+      font-weight:800;
+    }
+
+    .section-title span{
+      color:#ff5c00;
+    }
+
+    /* SERVICES */
+
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .service-card{
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:24px;
+      padding:35px;
+      transition:0.4s;
+      backdrop-filter:blur(10px);
+    }
+
+    .service-card:hover{
+      transform:translateY(-8px);
+      border-color:#ff5c00;
+    }
+
+    .service-card h3{
+      font-size:24px;
+      margin-bottom:18px;
+    }
+
+    .service-card p{
+      color:#bdbdbd;
+      line-height:1.7;
+      margin-bottom:25px;
+    }
+
+    .price{
+      color:#ff5c00;
+      font-size:26px;
+      font-weight:700;
+    }
+
+    /* WHY US */
+
+    .why-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .why-card{
+      text-align:center;
+      padding:40px;
+      background:#151515;
+      border-radius:24px;
+    }
+
+    .why-card h3{
+      margin:25px 0 15px;
+      font-size:24px;
+    }
+
+    .why-card p{
+      color:#bfbfbf;
+      line-height:1.7;
+    }
+
+    .icon{
+      font-size:48px;
+    }
+
+    /* CONTACT */
+
+    .contact-wrapper{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+      align-items:center;
+    }
+
+    .contact-box{
+      background:#151515;
+      padding:50px;
+      border-radius:24px;
+    }
+
+    .contact-box h3{
+      font-size:34px;
+      margin-bottom:30px;
+    }
+
+    .contact-item{
+      margin-bottom:25px;
+    }
+
+    .contact-item span{
+      display:block;
+      color:#999;
+      margin-bottom:5px;
+    }
+
+    iframe{
+      width:100%;
+      height:450px;
+      border:none;
+      border-radius:24px;
+    }
+
+    /* CTA */
+
+    .cta{
+      text-align:center;
+      background:linear-gradient(135deg,#ff5c00,#ff7b2f);
+      border-radius:30px;
+      padding:80px 40px;
+    }
+
+    .cta h2{
+      font-size:48px;
+      margin-bottom:25px;
+    }
+
+    .cta p{
+      max-width:700px;
+      margin:auto;
+      margin-bottom:35px;
+      line-height:1.7;
+      color:white;
+    }
+
+    .cta .btn{
+      background:white;
+      color:black;
+    }
+
+    .cta .btn:hover{
+      background:#f3f3f3;
+    }
+
+    /* FOOTER */
+
+    footer{
+      padding:35px 0;
+      text-align:center;
+      color:#777;
+      border-top:1px solid rgba(255,255,255,0.06);
+    }
+
+    /* MOBILE */
+
+    @media(max-width:900px){
+
+      .hero h1{
+        font-size:48px;
+      }
+
+      .section-title{
+        font-size:38px;
+      }
+
+      .contact-wrapper{
+        grid-template-columns:1fr;
+      }
+
+      .navbar{
+        flex-direction:column;
+        gap:20px;
+      }
+
+      .nav-right{
+        flex-direction:column;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+
+    <div class="container navbar">
+
+      <div class="logo">
+        PNEUMA <span>SERVIS</span>
+      </div>
+
+      <div class="nav-right">
+
+        <div class="phone">
+          +420 777 456 221
+        </div>
+
+        <a href="#kontakt" class="btn">
+          Rezervace online
+        </a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="container">
+
+      <div class="hero-content">
+
+        <h1>
+          Profesionální pneuservis bez čekání
+        </h1>
+
+        <p>
+          Rychlá výměna pneumatik, vyvážení kol a kompletní servis pro osobní vozy i SUV.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="#kontakt" class="btn">
+            Objednat termín
+          </a>
+
+          <a href="#sluzby" class="btn btn-secondary">
+            Naše služby
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SERVICES -->
+
+  <section id="sluzby">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Naše <span>služby</span>
+      </h2>
+
+      <div class="services-grid">
+
+        <div class="service-card">
+
+          <h3>Sezónní přezutí kol</h3>
+
+          <p>
+            Kompletní výměna pneumatik včetně kontroly tlaku a dotažení kol.
+          </p>
+
+          <div class="price">
+            od 790 Kč
+          </div>
+
+        </div>
+
+        <div class="service-card">
+
+          <h3>Vyvážení kol</h3>
+
+          <p>
+            Přesné digitální vyvážení pro bezpečnou a pohodlnou jízdu.
+          </p>
+
+          <div class="price">
+            od 290 Kč
+          </div>
+
+        </div>
+
+        <div class="service-card">
+
+          <h3>Oprava pneumatik</h3>
+
+          <p>
+            Rychlá oprava defektů a poškození pneumatik všech typů.
+          </p>
+
+          <div class="price">
+            od 250 Kč
+          </div>
+
+        </div>
+
+        <div class="service-card">
+
+          <h3>TPMS diagnostika</h3>
+
+          <p>
+            Kontrola a nastavení systému tlaku pneumatik.
+          </p>
+
+          <div class="price">
+            od 350 Kč
+          </div>
+
+        </div>
+
+        <div class="service-card">
+
+          <h3>Uskladnění pneumatik</h3>
+
+          <p>
+            Bezpečné uskladnění vašich pneumatik během sezóny.
+          </p>
+
+          <div class="price">
+            od 1200 Kč
+          </div>
+
+        </div>
+
+        <div class="service-card">
+
+          <h3>Kontrola podvozku</h3>
+
+          <p>
+            Profesionální kontrola stavu kol a podvozku vozidla.
+          </p>
+
+          <div class="price">
+            od 450 Kč
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- WHY US -->
+
+  <section>
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Proč <span>my?</span>
+      </h2>
+
+      <div class="why-grid">
+
+        <div class="why-card">
+
+          <div class="icon">⚡</div>
+
+          <h3>Rychlý servis</h3>
+
+          <p>
+            Většinu zakázek zvládneme do 30 minut bez zbytečného čekání.
+          </p>
+
+        </div>
+
+        <div class="why-card">
+
+          <div class="icon">🛞</div>
+
+          <h3>Moderní vybavení</h3>
+
+          <p>
+            Používáme profesionální technologie nové generace.
+          </p>
+
+        </div>
+
+        <div class="why-card">
+
+          <div class="icon">✔</div>
+
+          <h3>Online rezervace</h3>
+
+          <p>
+            Objednejte si termín jednoduše během několika kliknutí.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="kontakt">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Kontaktujte <span>nás</span>
+      </h2>
+
+      <div class="contact-wrapper">
+
+        <div class="contact-box">
+
+          <h3>PNEUMA SERVIS</h3>
+
+          <div class="contact-item">
+            <span>Adresa</span>
+            Nádražní 112/58, Ostrava
+          </div>
+
+          <div class="contact-item">
+            <span>Telefon</span>
+            +420 777 456 221
+          </div>
+
+          <div class="contact-item">
+            <span>Email</span>
+            info@pneumaservis.cz
+          </div>
+
+          <div class="contact-item">
+            <span>Otevírací doba</span>
+            Po – Pá: 8:00 – 18:00<br>
+            So: 8:00 – 14:00
+          </div>
+
+        </div>
+
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10270.192068224182!2d18.262524!3d49.835934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4713eb1f6f8f8e2b%3A0xf1c53e0c8f5e65d9!2sOstrava!5e0!3m2!1sen!2scz!4v1715420972190!5m2!1sen!2scz"
+          allowfullscreen=""
+          loading="lazy">
+        </iframe>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CTA -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="cta">
+
+        <h2>
+          Připraveni na rychlý servis?
+        </h2>
+
+        <p>
+          Rezervujte si termín online a nechte své auto v rukou profesionálů.
+        </p>
+
+        <a href="#kontakt" class="btn">
+          Rezervovat termín
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    © 2026 PNEUMA SERVIS • Moderní pneuservis v Ostravě
+  </footer>
+
+</body>
+</html>
